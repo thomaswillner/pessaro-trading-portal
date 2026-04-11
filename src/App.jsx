@@ -25,8 +25,8 @@ export default function App() {
 
   if (loading) return <Loader />
 
-  // In dev mode with no auth, use demo data
-  const userId = session?.user?.id || 'demo'
+  // Demo user UUID — matches seed data in Supabase branch
+  const userId = session?.user?.id || '00000000-0000-0000-0000-000000000001'
 
   return (
     <BrowserRouter>

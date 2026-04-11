@@ -32,10 +32,17 @@ export function useAccount(userId) {
 
   async function fetchAccount() {
     setLoading(true)
-    const [{ data: acc }, { data: pos }] = await Promise.all([
-      supabase.from('tp_accounts').select('*').eq('user_id', userId).single(),
-      supabase.from('tp_open_positions').select('*').eq('user_id', userId),
-    ])
+    const { data: acc } = await supabase
+      .from('tp_accounts')
+      .select('*')
+      .eq('user_id', userId)
+      .single()
+
+    const { data: pos } = await supabase
+      .from('tp_open_positions')
+      .select('*')
+      .eq('user_id', userId)
+
     setAccount(acc)
     setPositions(pos || [])
     setLoading(false)

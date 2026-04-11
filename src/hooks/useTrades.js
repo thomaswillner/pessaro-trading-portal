@@ -7,9 +7,8 @@ export function useTrades(accountId, filters = {}) {
   const [error,   setError]   = useState(null)
 
   useEffect(() => {
-    if (!accountId) return
     fetchTrades()
-  }, [accountId, filters.symbol, filters.type, filters.from, filters.to])
+  }, [accountId, filters.symbol, filters.type])
 
   async function fetchTrades() {
     setLoading(true)
@@ -18,13 +17,14 @@ export function useTrades(accountId, filters = {}) {
       let q = supabase
         .from('tp_trades')
         .select('*')
-        .eq('account_id', accountId)
         .order('close_time', { ascending: false })
+
+      if (accountId) {
+        q = q.eq('account_id', accountId)
+      }
 
       if (filters.symbol) q = q.eq('symbol', filters.symbol)
       if (filters.type)   q = q.eq('position_type', filters.type)
-      if (filters.from)   q = q.gte('close_time', filters.from)
-      if (filters.to)     q = q.lte('close_time', filters.to)
 
       const { data, error: err } = await q
       if (err) throw err
