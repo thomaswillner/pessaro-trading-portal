@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useAccount } from '@/hooks/useAccount'
 import { useTrades }  from '@/hooks/useTrades'
 import { C, UI, MONO, buildCalendar } from '@/lib/helpers'
@@ -11,17 +11,36 @@ export default function Calendar({ userId }) {
   const { account }         = useAccount(userId)
   const { trades, loading } = useTrades(account?.id)
 
-  const now = new Date()
-  const [year, setYear]   = useState(now.getFullYear())
-  const [month, setMonth] = useState(now.getMonth())
+  // Default to last month that has trades
+  const [year,  setYear]  = useState(null)
+  const [month, setMonth] = useState(null)
 
-  const calData = useMemo(() => buildCalendar(trades, year, month), [trades, year, month])
+  useEffect(() => {
+    if (trades.length && year === null) {
+      const last = new Date(Math.max(...trades.map(t => new Date(t.close_time))))
+      setYear(last.getFullYear())
+      setMonth(last.getMonth())
+    } else if (!loading && year === null) {
+      const now = new Date()
+      setYear(now.getFullYear())
+      setMonth(now.getMonth())
+    }
+  }, [trades, loading])
+
+  const calData = useMemo(() => {
+    if (year === null || month === null) return {}
+    return buildCalendar(trades, year, month)
+  }, [trades, year, month])
 
   const navigate = delta => {
     let m = month + delta, y = year
     if (m > 11) { m = 0; y++ }
     else if (m < 0) { m = 11; y-- }
     setMonth(m); setYear(y)
+  }
+
+  if (year === null || month === null) {
+    return <div style={{ textAlign: 'center', padding: 40, color: C.faint, fontFamily: MONO, fontSize: 12 }}>Cargando…</div>
   }
 
   const firstDOW  = new Date(year, month, 1).getDay()
@@ -35,10 +54,33 @@ export default function Calendar({ userId }) {
   const monthPnl  = monthTrades.reduce((s, t) => s + t.profit_loss, 0)
   const monthWins = monthTrades.filter(t => t.profit_loss > 0).length
 
+  // Build list of months that have trades for quick nav
+  const monthsWithTrades = [...new Set(trades.map(t => {
+    const d = new Date(t.close_time)
+    return `${d.getFullYear()}-${d.getMonth()}`
+  }))].map(k => {
+    const [y, m] = k.split('-').map(Number)
+    return { year: y, month: m, label: `${MONTHS[m]} ${y}` }
+  }).sort((a, b) => a.year !== b.year ? a.year - b.year : a.month - b.month)
+
   return (
     <div>
       <h1 style={{ fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 3 }}>Calendario P&L</h1>
       <div style={{ fontSize: 12, color: C.muted, marginBottom: 20 }}>Rendimiento diario por mes</div>
+
+      {/* Quick month selector */}
+      {monthsWithTrades.length > 1 && (
+        <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
+          {monthsWithTrades.map(m => (
+            <button key={m.label} onClick={() => { setYear(m.year); setMonth(m.month) }} style={{
+              padding: '4px 10px', borderRadius: 7, fontSize: 11, fontFamily: UI, cursor: 'pointer',
+              background: year === m.year && month === m.month ? 'rgba(0,229,160,0.12)' : C.card,
+              color:      year === m.year && month === m.month ? C.green : C.muted,
+              border:    `1px solid ${year === m.year && month === m.month ? 'rgba(0,229,160,0.3)' : C.border}`,
+            }}>{m.label}</button>
+          ))}
+        </div>
+      )}
 
       {/* Month nav */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
@@ -47,12 +89,10 @@ export default function Calendar({ userId }) {
         <button onClick={() => navigate(+1)} style={{ background: C.card, border: `1px solid ${C.border}`, color: C.text, padding: '7px 14px', borderRadius: 8, fontSize: 15, cursor: 'pointer' }}>›</button>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 14 }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: C.faint }}>
-            <span style={{ width: 10, height: 10, background: C.greenBg, border: `1px solid ${C.green}`, borderRadius: 3, display: 'inline-block' }} />
-            Ganancia
+            <span style={{ width: 10, height: 10, background: C.greenBg, border: `1px solid ${C.green}`, borderRadius: 3, display: 'inline-block' }} />Ganancia
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: C.faint }}>
-            <span style={{ width: 10, height: 10, background: C.redBg, border: `1px solid ${C.red}`, borderRadius: 3, display: 'inline-block' }} />
-            Pérdida
+            <span style={{ width: 10, height: 10, background: C.redBg, border: `1px solid ${C.red}`, borderRadius: 3, display: 'inline-block' }} />Pérdida
           </span>
         </div>
       </div>
@@ -94,10 +134,10 @@ export default function Calendar({ userId }) {
       {/* Monthly summary */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,minmax(0,1fr))', gap: 12 }}>
         {[
-          { k: 'P&L del mes',  v: `${monthPnl >= 0 ? '+' : '-'}$${Math.abs(monthPnl).toFixed(0)}`, c: monthPnl >= 0 ? C.green : C.red },
-          { k: 'Operaciones',  v: monthTrades.length, c: C.text },
+          { k: 'P&L del mes',  v: monthTrades.length ? `${monthPnl >= 0 ? '+' : '-'}$${Math.abs(monthPnl).toFixed(0)}` : '—', c: monthPnl >= 0 ? C.green : C.red },
+          { k: 'Operaciones',  v: monthTrades.length || '—', c: C.text },
           { k: 'Win rate',     v: monthTrades.length ? `${(monthWins / monthTrades.length * 100).toFixed(0)}%` : '—', c: C.green },
-          { k: 'Días activos', v: Object.keys(calData).length, c: C.text },
+          { k: 'Días activos', v: Object.keys(calData).length || '—', c: C.text },
         ].map(({ k, v, c }) => (
           <div key={k} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, padding: '13px 16px' }}>
             <div style={{ fontSize: 9, color: C.faint, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: 7, fontFamily: UI }}>{k}</div>
