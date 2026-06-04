@@ -1,0 +1,45 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pessaro Trade app icon">
+  <defs>
+    <linearGradient id="pt-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1F6E"></stop>
+      <stop offset="0.55" stop-color="#231470"></stop>
+      <stop offset="1" stop-color="#3F1A8E"></stop>
+    </linearGradient>
+    <linearGradient id="pt-mint" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#3DC78F"></stop>
+      <stop offset="1" stop-color="#A8F0C8"></stop>
+    </linearGradient>
+    <linearGradient id="pt-shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"></stop>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"></stop>
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="512" height="512" rx="112" fill="url(#pt-bg)"></rect>
+  <rect width="512" height="512" rx="112" fill="url(#pt-shine)"></rect>
+
+  
+  <g opacity="0.07" stroke="#ffffff" stroke-width="1.25" fill="none">
+    <line x1="0" y1="170" x2="512" y2="170"></line>
+    <line x1="0" y1="256" x2="512" y2="256"></line>
+    <line x1="0" y1="342" x2="512" y2="342"></line>
+    <line x1="170" y1="0" x2="170" y2="512"></line>
+    <line x1="256" y1="0" x2="256" y2="512"></line>
+    <line x1="342" y1="0" x2="342" y2="512"></line>
+  </g>
+
+  
+  <rect x="116" y="316" width="50" height="80" rx="12" fill="#ffffff" opacity="0.22"></rect>
+  <rect x="190" y="262" width="50" height="134" rx="12" fill="#ffffff" opacity="0.34"></rect>
+  <rect x="264" y="198" width="50" height="198" rx="12" fill="url(#pt-mint)"></rect>
+
+  
+  <path d="M 116 316 L 296 184" stroke="url(#pt-mint)" stroke-width="28" stroke-linecap="round" fill="none"></path>
+  <path d="M 296 184 L 296 246 M 296 184 L 234 184" stroke="url(#pt-mint)" stroke-width="28" stroke-linecap="round" fill="none"></path>
+
+  
+  <g opacity="0.55">
+    <path d="M 384 396 L 432 444 M 432 396 L 384 444" stroke="#ffffff" stroke-width="14" stroke-linecap="round" fill="none"></path>
+  </g>
+</svg>

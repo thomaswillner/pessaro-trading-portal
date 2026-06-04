@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spacing — Section Rhythm</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 0; background: var(--card); font-family: var(--font-sans); }
+  .stripe { display: flex; align-items: center; justify-content: center; position: relative; }
+  .s1 { height: 80px; background: oklch(0.11 0.04 240); color: oklch(0.92 0.01 0); }
+  .s2 { height: 96px; background: var(--background); color: var(--foreground); }
+  .s3 { height: 80px; background: var(--muted); color: var(--foreground); }
+  .s4 { height: 64px; background: oklch(0.11 0.04 240); color: oklch(0.92 0.01 0); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.9; }
+  .py { position: absolute; left: 20px; top: 12px; font-family: var(--font-mono); font-size: 10px; opacity: 0.6; }
+</style>
+</head>
+<body>
+  <div class="stripe s1"><span class="py">py 6</span><span class="lbl">Hero · dark indigo · py-24</span></div>
+  <div class="stripe s2"><span class="py">py 6</span><span class="lbl">Section · background · py-24</span></div>
+  <div class="stripe s3"><span class="py">py 5</span><span class="lbl">Stripe · muted/30 · py-20</span></div>
+  <div class="stripe s4"><span class="py">py 4</span><span class="lbl">Footer · secondary · py-16</span></div>
+</body>
+</html>

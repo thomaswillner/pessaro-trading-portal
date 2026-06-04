@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Colors — Themes</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px 24px; background: var(--card); font-family: var(--font-sans); }
+  .row { display: grid; grid-template-columns: 92px repeat(4, 1fr); gap: 8px; align-items: center; padding: 8px 0; }
+  .row + .row { border-top: 1px solid var(--border); }
+  .name { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--foreground); font-weight: 600; }
+  .sub { font-size: 10px; color: var(--muted-foreground); font-weight: 400; letter-spacing: 0; text-transform: none; margin-top: 2px; font-family: var(--font-sans);}
+  .chip { height: 38px; border-radius: 8px; border: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="name">Default<div class="sub">light</div></div>
+    <div class="chip" style="background: oklch(0.99 0.01 220);"></div>
+    <div class="chip" style="background: oklch(0.35 0.20 250);"></div>
+    <div class="chip" style="background: oklch(0.45 0.25 280);"></div>
+    <div class="chip" style="background: oklch(0.75 0.18 160);"></div>
+  </div>
+  <div class="row">
+    <div class="name">Navy<div class="sub">violet on indigo</div></div>
+    <div class="chip" style="background: oklch(0.11 0.04 240);"></div>
+    <div class="chip" style="background: oklch(0.58 0.22 290);"></div>
+    <div class="chip" style="background: oklch(0.62 0.18 220);"></div>
+    <div class="chip" style="background: oklch(0.93 0.01 220);"></div>
+  </div>
+  <div class="row">
+    <div class="name">Gold<div class="sub">amber on espresso</div></div>
+    <div class="chip" style="background: oklch(0.10 0.02 50);"></div>
+    <div class="chip" style="background: oklch(0.72 0.14 75);"></div>
+    <div class="chip" style="background: oklch(0.80 0.16 80);"></div>
+    <div class="chip" style="background: oklch(0.93 0.01 50);"></div>
+  </div>
+  <div class="row">
+    <div class="name">Carbon<div class="sub">green on black</div></div>
+    <div class="chip" style="background: oklch(0.10 0 0);"></div>
+    <div class="chip" style="background: oklch(0.72 0.18 158);"></div>
+    <div class="chip" style="background: oklch(0.82 0.20 158);"></div>
+    <div class="chip" style="background: oklch(0.93 0.01 0);"></div>
+  </div>
+</body>
+</html>

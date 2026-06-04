@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Colors — Brand</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--card); font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .swatch { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .chip { height: 80px; display: flex; align-items: flex-end; padding: 10px 12px; }
+  .chip .name { color: rgba(255,255,255,0.95); font-weight: 600; font-size: 13px; }
+  .info { padding: 8px 12px 10px; background: var(--card); }
+  .role { font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--foreground); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="swatch"><div class="chip" style="background: oklch(0.35 0.20 250);"><span class="name">Primary</span></div><div class="info"><div class="role">--primary · CTA</div><div class="hex">oklch 0.35 / 250</div></div></div>
+  <div class="swatch"><div class="chip" style="background: oklch(0.25 0.18 250);"><span class="name">Secondary</span></div><div class="info"><div class="role">--secondary · footer</div><div class="hex">oklch 0.25 / 250</div></div></div>
+  <div class="swatch"><div class="chip" style="background: oklch(0.45 0.25 280);"><span class="name">Accent</span></div><div class="info"><div class="role">--accent · brand hero</div><div class="hex">oklch 0.45 / 280</div></div></div>
+  <div class="swatch"><div class="chip" style="background: oklch(0.75 0.18 160); color: oklch(0.15 0.06 220);"><span class="name" style="color:rgba(0,0,0,0.85);">Title Accent</span></div><div class="info"><div class="role">--title-accent · payoff</div><div class="hex">oklch 0.75 / 160</div></div></div>
+</div>
+</body>
+</html>

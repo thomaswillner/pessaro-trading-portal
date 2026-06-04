@@ -1,0 +1,397 @@
+/* ============================================================
+   Pessaro Capital — Design Tokens
+   Single source of truth for color, typography, spacing, motion.
+   Mirrors the tokens from pessaro_CL/src/index.css, condensed
+   and normalised for reuse outside Tailwind.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ---------- Typography ---------- */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- Type scale (fluid, marketing-ready) ---------- */
+  --fs-xs:   0.75rem;   /* 12 — captions, legal */
+  --fs-sm:   0.875rem;  /* 14 — UI / body small */
+  --fs-base: 1rem;      /* 16 — body */
+  --fs-lg:   1.125rem;  /* 18 — lead */
+  --fs-xl:   1.25rem;   /* 20 — small headings */
+  --fs-2xl:  1.5rem;    /* 24 — H4 */
+  --fs-3xl:  1.875rem;  /* 30 — H3 */
+  --fs-4xl:  2.25rem;   /* 36 — H2 */
+  --fs-5xl:  3rem;      /* 48 — H1 */
+  --fs-6xl:  3.75rem;   /* 60 — Display */
+  --fs-7xl:  4.5rem;    /* 72 — Hero */
+
+  /* ---------- Radius ---------- */
+  --radius: 0.625rem;            /* 10px — base */
+  --radius-sm: calc(var(--radius) - 4px);  /* 6  */
+  --radius-md: calc(var(--radius) - 2px);  /* 8  */
+  --radius-lg: var(--radius);              /* 10 */
+  --radius-xl: calc(var(--radius) + 4px);  /* 14 */
+  --radius-2xl: calc(var(--radius) + 12px);/* 22 */
+  --radius-full: 9999px;
+
+  /* ---------- Spacing (sections + grids) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-section: clamp(3rem, 5vw, 6rem);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 200ms;
+  --dur-med: 300ms;
+  --dur-slow: 500ms;
+
+  /* ============================================================
+     LIGHT MODE TOKENS — institutional default
+     ============================================================ */
+
+  /* Core surfaces & ink */
+  --background:        oklch(0.99 0.01 220);
+  --foreground:        oklch(0.15 0.06 220);
+  --card:              oklch(1    0    0);
+  --card-foreground:   oklch(0.15 0.06 220);
+  --popover:           oklch(1    0    0);
+  --popover-foreground:oklch(0.15 0.06 220);
+  --muted:             oklch(0.96 0.01 240);
+  --muted-foreground:  oklch(0.45 0.04 240);
+
+  /* Brand */
+  --primary:           oklch(0.35 0.20 250);   /* #061deb — vibrant blue */
+  --primary-foreground:oklch(0.98 0.01 0);
+  --secondary:         oklch(0.25 0.18 250);   /* #0A2687 — pessaro blue */
+  --secondary-foreground: oklch(0.98 0.01 0);
+  --accent:            oklch(0.45 0.25 280);   /* #5e17eb — purple */
+  --accent-foreground: oklch(0.98 0.01 0);
+
+  /* Semantic */
+  --destructive:       oklch(0.55 0.22 15);
+  --destructive-foreground: oklch(0.98 0.01 15);
+  --success:           oklch(0.68 0.16 150);   /* mint green tick */
+  --warning:           oklch(0.70 0.18 50);    /* warm orange */
+
+  /* Lines & states */
+  --border:            oklch(0.91 0.02 220);
+  --input:             oklch(0.91 0.02 220);
+  --ring:              oklch(0.45 0.25 280);   /* purple focus */
+
+  /* Marketing accents (used in headlines) */
+  --title-primary:     oklch(0.98 0.01 0);     /* pure white in dark sections */
+  --title-accent:      oklch(0.75 0.18 160);   /* mint green accent word */
+  --subtitle:          oklch(0.70 0.15 160);
+  --trust-blue:        oklch(0.60 0.20 220);
+  --success-orange:    oklch(0.70 0.18 50);
+  --mint-accent:       oklch(0.80 0.20 160);
+
+  /* Chart palette */
+  --chart-1: oklch(0.45 0.15 260);
+  --chart-2: oklch(0.65 0.18 150);
+  --chart-3: oklch(0.75 0.16 55);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.85 0.14 85);
+
+  /* Sidebar */
+  --sidebar:           oklch(0.98 0.01 260);
+  --sidebar-foreground:oklch(0.25 0.06 260);
+  --sidebar-primary:   oklch(0.28 0.08 260);
+  --sidebar-accent:    oklch(0.94 0.02 260);
+  --sidebar-border:    oklch(0.91 0.02 260);
+
+  /* Navbar override (deep indigo) */
+  --navbar-bg: #1a1f6e;
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 1px 2px 0 rgb(15 21 60 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(15 21 60 / 0.10), 0 2px 4px -2px rgb(15 21 60 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(15 21 60 / 0.12), 0 4px 6px -4px rgb(15 21 60 / 0.10);
+  --shadow-xl: 0 20px 25px -5px rgb(15 21 60 / 0.20), 0 8px 10px -6px rgb(15 21 60 / 0.10);
+  --shadow-accent-glow: 0 12px 32px -8px oklch(0.45 0.25 280 / 0.40);
+  --shadow-inner-tile: inset 0 1px 0 rgb(255 255 255 / 0.06), inset 0 0 0 1px oklch(0.91 0.02 220 / 0.20);
+}
+
+/* ============================================================
+   DARK MODE — "Corporate Futurism"
+   Applied via .dark on <html> or any ancestor
+   ============================================================ */
+.dark {
+  --background:        oklch(0.12 0.03 260);  /* deep indigo */
+  --foreground:        oklch(0.92 0.01 0);
+  --card:              oklch(0.15 0.04 260);
+  --card-foreground:   oklch(0.92 0.01 0);
+  --popover:           oklch(0.14 0.04 260);
+  --popover-foreground:oklch(0.92 0.01 0);
+  --muted:             oklch(0.18 0.04 260);
+  --muted-foreground:  oklch(0.65 0.04 260);
+
+  --primary:           oklch(0.35 0.20 250);
+  --primary-foreground:oklch(0.98 0.01 0);
+  --secondary:         oklch(0.25 0.18 250);
+  --secondary-foreground: oklch(0.98 0.01 0);
+  --accent:            oklch(0.45 0.25 280);
+  --accent-foreground: oklch(0.98 0.01 0);
+
+  --destructive:       oklch(0.65 0.22 15);
+  --destructive-foreground: oklch(0.98 0.01 15);
+
+  --border:            oklch(0.20 0.04 260);
+  --input:             oklch(0.20 0.04 260);
+  --ring:              oklch(0.45 0.25 280);
+
+  --sidebar:           oklch(0.14 0.04 260);
+  --sidebar-foreground:oklch(0.92 0.01 0);
+  --sidebar-primary:   oklch(0.35 0.20 250);
+  --sidebar-accent:    oklch(0.20 0.04 260);
+  --sidebar-border:    oklch(0.20 0.04 260);
+
+  --navbar-bg: #0d1230;
+}
+
+/* ============================================================
+   ALT THEMES — selectable via [data-theme] on <html>
+   ============================================================ */
+[data-theme="gold"] {
+  --background: oklch(0.10 0.02 50);
+  --foreground: oklch(0.93 0.01 50);
+  --card:       oklch(0.13 0.03 50);
+  --primary:    oklch(0.72 0.14 75);
+  --accent:     oklch(0.80 0.16 80);
+  --border:     oklch(0.22 0.05 55);
+  --navbar-bg:  #1a1505;
+}
+[data-theme="carbon"] {
+  --background: oklch(0.10 0    0);
+  --foreground: oklch(0.93 0.01 0);
+  --card:       oklch(0.13 0    0);
+  --primary:    oklch(0.72 0.18 158);
+  --accent:     oklch(0.82 0.20 158);
+  --border:     oklch(0.22 0    0);
+  --navbar-bg:  #111111;
+}
+[data-theme="navy"] {
+  --background: oklch(0.11 0.04 240);
+  --foreground: oklch(0.93 0.01 220);
+  --card:       oklch(0.14 0.05 240);
+  --primary:    oklch(0.58 0.22 290);
+  --accent:     oklch(0.62 0.18 220);
+  --border:     oklch(0.21 0.06 240);
+  --navbar-bg:  #0a1628;
+}
+
+/* ============================================================
+   SEMANTIC TYPOGRAPHY
+   Map raw vars to readable element/utility names.
+   ============================================================ */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: var(--fs-base);
+  line-height: 1.5;
+}
+
+/* Headings — semi-bold, tracking-tight, two-tone friendly */
+h1, .h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(var(--fs-4xl), 5vw, var(--fs-7xl));
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+h2, .h2 {
+  font-size: clamp(var(--fs-3xl), 3.5vw, var(--fs-5xl));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+h3, .h3 {
+  font-size: clamp(var(--fs-2xl), 2.5vw, var(--fs-3xl));
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+h4, .h4 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+h5, .h5 {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+h6, .h6 {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+p, .body {
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  color: var(--foreground);
+}
+.lead {
+  font-size: var(--fs-lg);
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+.caption {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+.legal {
+  font-size: 0.625rem;       /* 10 */
+  line-height: 1.6;
+  opacity: 0.6;
+  text-align: justify;
+}
+
+/* Mono — reserved for numbers / market quotes */
+code, kbd, samp, pre, .mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1; /* tabular */
+}
+.quote {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Two-tone headline helper:
+   <h1><span class="t-primary">Servicios Financieros de</span> <span class="t-accent">Elite</span></h1> */
+.t-primary { color: var(--title-primary); }
+.t-accent  { color: var(--title-accent);  }
+.t-muted   { color: var(--muted-foreground); }
+
+/* Selection */
+::selection { background: oklch(0.45 0.25 280 / 0.20); color: var(--accent); }
+
+/* Scrollbar (thin) */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: oklch(0.45 0.04 240 / 0.30); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.45 0.04 240 / 0.50); }
+
+/* ============================================================
+   UTILITY PRIMITIVES — minimal, used by preview cards and kits
+   ============================================================ */
+
+.surface-card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  background: oklch(0.45 0.25 280 / 0.20);
+  border: 1px solid oklch(0.45 0.25 280 / 0.30);
+  color: var(--title-accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  height: 2.5rem;
+  padding: 0 1rem;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-primary:hover { background: oklch(from var(--primary) calc(l - 0.04) c h); }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  box-shadow: var(--shadow-md);
+}
+.btn-accent:hover {
+  box-shadow: var(--shadow-accent-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.btn-outline:hover { background: var(--accent); color: var(--accent-foreground); border-color: var(--accent); }
+
+.btn-ghost { background: transparent; color: var(--foreground); }
+.btn-ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+
+.btn-lg { height: 2.75rem; padding: 0 2rem; font-size: var(--fs-base); border-radius: var(--radius-md); }
+.btn-sm { height: 2.25rem; padding: 0 0.75rem; font-size: var(--fs-xs); }
+
+/* Trust badge — pill with icon + small caps text */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: oklch(0.45 0.25 280 / 0.18);
+  border: 1px solid oklch(0.45 0.25 280 / 0.32);
+  color: oklch(0.78 0.16 160);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+/* Icon tile (used on service cards) */
+.icon-tile {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-xl);
+  background: oklch(0.45 0.25 280 / 0.06);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  box-shadow: var(--shadow-inner-tile);
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Type — Mono</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--card); }
+  .hd { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; margin-bottom: 14px; }
+  .quotes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .q { padding: 10px 12px; border-radius: 10px; background: oklch(0.45 0.25 280 / 0.06); border: 1px solid var(--border); }
+  .sym { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--foreground); letter-spacing: -0.01em; }
+  .price { font-family: var(--font-mono); font-size: 18px; font-weight: 500; color: var(--foreground); margin-top: 2px; font-feature-settings:"tnum"; }
+  .delta { font-family: var(--font-mono); font-size: 11px; margin-top: 2px; }
+  .up { color: oklch(0.68 0.16 150); }
+  .dn { color: oklch(0.60 0.20 25); }
+  .note { font-size: 11px; color: var(--muted-foreground); margin-top: 14px; font-family: var(--font-sans); }
+</style>
+</head>
+<body>
+  <div class="hd">JetBrains Mono · 400/500/700 · tabular numerals · market quotes only</div>
+  <div class="quotes">
+    <div class="q"><div class="sym">EUR/USD</div><div class="price">1.0842</div><div class="delta up">+0.0023  +0.21%</div></div>
+    <div class="q"><div class="sym">XAU/USD</div><div class="price">2,408.15</div><div class="delta up">+12.40  +0.52%</div></div>
+    <div class="q"><div class="sym">BTC/USD</div><div class="price">88,142</div><div class="delta dn">−1,204  −1.35%</div></div>
+    <div class="q"><div class="sym">SPX500</div><div class="price">5,612.8</div><div class="delta up">+18.6  +0.33%</div></div>
+  </div>
+  <div class="note">Reserved for symbols, prices, spreads, leverage (1:500), pips. Never used for prose.</div>
+</body>
+</html>

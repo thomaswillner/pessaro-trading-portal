@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Components — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--card); font-family: var(--font-sans); }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 6px 0; }
+  .row + .row { border-top: 1px solid var(--border); padding-top: 12px; margin-top: 6px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-foreground); width: 84px; flex-shrink: 0; font-weight: 600; }
+  .btn [data-lucide] { width: 16px; height: 16px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="lbl">Accent · lg</span>
+    <button class="btn btn-accent btn-lg">Abrir Cuenta Real <i data-lucide="arrow-right"></i></button>
+    <button class="btn btn-accent">Operar</button>
+  </div>
+  <div class="row">
+    <span class="lbl">Primary</span>
+    <button class="btn btn-primary">Suscribirse</button>
+    <button class="btn btn-primary btn-sm">Operar</button>
+  </div>
+  <div class="row">
+    <span class="lbl">Outline</span>
+    <button class="btn btn-outline btn-lg">Prueba Demo Gratis</button>
+    <button class="btn btn-outline">Ver detalles <i data-lucide="arrow-right"></i></button>
+  </div>
+  <div class="row">
+    <span class="lbl">Ghost</span>
+    <button class="btn btn-ghost">Contactar Asesor</button>
+    <button class="btn btn-ghost btn-sm"><i data-lucide="message-square"></i>WhatsApp</button>
+  </div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

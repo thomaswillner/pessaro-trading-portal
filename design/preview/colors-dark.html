@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Colors — Dark Mode</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html { background: oklch(0.12 0.03 260); }
+  body { margin: 0; padding: 24px 28px; background: oklch(0.12 0.03 260); font-family: var(--font-sans); color: oklch(0.92 0.01 0); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid oklch(0.20 0.04 260); }
+  .chip { height: 72px; }
+  .info { padding: 8px 10px 10px; background: oklch(0.15 0.04 260); border-top: 1px solid oklch(0.20 0.04 260); }
+  .role { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.92 0.01 0); font-weight: 600; font-family: var(--font-mono); }
+  .desc { font-size: 10px; color: oklch(0.65 0.04 260); margin-top: 2px; }
+  .label { font-size: 11px; color: oklch(0.65 0.04 260); margin-bottom: 12px; font-family: var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="label">DARK · Corporate Futurism · .dark on &lt;html&gt;</div>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: oklch(0.12 0.03 260);"></div><div class="info"><div class="role">background</div><div class="desc">deep indigo</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.15 0.04 260);"></div><div class="info"><div class="role">card</div><div class="desc">surface lift</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.35 0.20 250);"></div><div class="info"><div class="role">primary</div><div class="desc">vibrant blue</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.45 0.25 280);"></div><div class="info"><div class="role">accent</div><div class="desc">purple</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.75 0.18 160);"></div><div class="info"><div class="role">title-accent</div><div class="desc">mint payoff</div></div></div>
+</div>
+</body>
+</html>

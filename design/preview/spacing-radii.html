@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spacing — Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--card); font-family: var(--font-sans); }
+  .row { display: flex; gap: 18px; align-items: flex-end; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .box { background: oklch(0.45 0.25 280 / 0.10); border: 1px solid oklch(0.45 0.25 280 / 0.40); width: 96px; height: 72px; }
+  .tok { font-family: var(--font-mono); font-size: 11px; color: var(--foreground); font-weight: 600; }
+  .px { font-family: var(--font-mono); font-size: 10px; color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="item"><div class="box" style="border-radius: 6px;"></div><div class="tok">sm</div><div class="px">6px</div></div>
+  <div class="item"><div class="box" style="border-radius: 8px;"></div><div class="tok">md</div><div class="px">8px</div></div>
+  <div class="item"><div class="box" style="border-radius: 10px;"></div><div class="tok">lg</div><div class="px">10px · base</div></div>
+  <div class="item"><div class="box" style="border-radius: 14px;"></div><div class="tok">xl</div><div class="px">14px · cards</div></div>
+  <div class="item"><div class="box" style="border-radius: 22px;"></div><div class="tok">2xl</div><div class="px">22px · hero cards</div></div>
+  <div class="item"><div class="box" style="border-radius: 9999px; width: 72px;"></div><div class="tok">full</div><div class="px">∞ · pills, avatars</div></div>
+</div>
+</body>
+</html>

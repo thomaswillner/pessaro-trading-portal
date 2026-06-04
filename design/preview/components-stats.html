@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Components — Stat Strip</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { margin: 0; padding: 28px; background: oklch(0.11 0.04 240); font-family: var(--font-sans); }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+  .tile { width: 44px; height: 44px; border-radius: 9999px; background: oklch(0.45 0.25 280 / 0.18); color: oklch(0.80 0.20 160); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+  .tile [data-lucide] { width: 20px; height: 20px; }
+  .v { font-family: var(--font-sans); font-size: 36px; font-weight: 800; color: oklch(0.80 0.20 160); line-height: 1; letter-spacing: -0.02em; }
+  .k { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: oklch(0.85 0.01 0 / 0.70); font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="strip">
+    <div class="stat"><div class="tile"><i data-lucide="clock"></i></div><div class="v">15+</div><div class="k">Años de Experiencia</div></div>
+    <div class="stat"><div class="tile"><i data-lucide="bar-chart-3"></i></div><div class="v">120+</div><div class="k">Activos Disponibles</div></div>
+    <div class="stat"><div class="tile"><i data-lucide="users"></i></div><div class="v">40M+</div><div class="k">Usuarios Globales</div></div>
+    <div class="stat"><div class="tile"><i data-lucide="trending-up"></i></div><div class="v">0.01s</div><div class="k">Ejecución</div></div>
+  </div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

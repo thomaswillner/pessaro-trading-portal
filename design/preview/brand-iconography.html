@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brand — Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { margin: 0; padding: 22px 28px; background: var(--card); font-family: var(--font-sans); }
+  .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+  .title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; }
+  .lib { font-family: var(--font-mono); font-size: 11px; color: var(--accent); font-weight: 700; }
+  .grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px; border: 1px solid var(--border); border-radius: 10px; background: var(--background); }
+  .cell [data-lucide] { width: 22px; height: 22px; color: var(--foreground); stroke-width: 1.75; }
+  .nm { font-family: var(--font-mono); font-size: 9px; color: var(--muted-foreground); text-align: center; }
+</style>
+</head>
+<body>
+  <div class="head"><span class="title">Lucide React · stroke 1.75 · size 16/20/24</span><span class="lib">lucide@latest</span></div>
+  <div class="grid">
+    <div class="cell"><i data-lucide="trending-up"></i><span class="nm">trending-up</span></div>
+    <div class="cell"><i data-lucide="trending-down"></i><span class="nm">trending-down</span></div>
+    <div class="cell"><i data-lucide="shield-check"></i><span class="nm">shield-check</span></div>
+    <div class="cell"><i data-lucide="bar-chart-3"></i><span class="nm">bar-chart-3</span></div>
+    <div class="cell"><i data-lucide="line-chart"></i><span class="nm">line-chart</span></div>
+    <div class="cell"><i data-lucide="wallet"></i><span class="nm">wallet</span></div>
+    <div class="cell"><i data-lucide="globe-2"></i><span class="nm">globe-2</span></div>
+    <div class="cell"><i data-lucide="arrow-right"></i><span class="nm">arrow-right</span></div>
+    <div class="cell"><i data-lucide="message-square"></i><span class="nm">message-square</span></div>
+    <div class="cell"><i data-lucide="zap"></i><span class="nm">zap</span></div>
+    <div class="cell"><i data-lucide="users"></i><span class="nm">users</span></div>
+    <div class="cell"><i data-lucide="clock"></i><span class="nm">clock</span></div>
+    <div class="cell"><i data-lucide="phone"></i><span class="nm">phone</span></div>
+    <div class="cell"><i data-lucide="mail"></i><span class="nm">mail</span></div>
+    <div class="cell"><i data-lucide="send"></i><span class="nm">send</span></div>
+    <div class="cell"><i data-lucide="check-circle-2"></i><span class="nm">check-circle-2</span></div>
+    <div class="cell"><i data-lucide="star"></i><span class="nm">star</span></div>
+    <div class="cell"><i data-lucide="quote"></i><span class="nm">quote</span></div>
+    <div class="cell"><i data-lucide="book-open"></i><span class="nm">book-open</span></div>
+    <div class="cell"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:var(--foreground)"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg><span class="nm">linkedin</span></div>
+  </div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

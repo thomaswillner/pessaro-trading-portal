@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Colors — Neutrals</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--background); font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .chip { height: 72px; }
+  .info { padding: 8px 10px 10px; background: var(--card); border-top: 1px solid var(--border); }
+  .role { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--foreground); font-weight: 600; font-family: var(--font-mono); }
+  .desc { font-size: 10px; color: var(--muted-foreground); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--background);"></div><div class="info"><div class="role">background</div><div class="desc">page</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--card); border-bottom: 1px solid var(--border);"></div><div class="info"><div class="role">card</div><div class="desc">surfaces</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--muted);"></div><div class="info"><div class="role">muted</div><div class="desc">section stripe</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--muted-foreground);"></div><div class="info"><div class="role">muted-fg</div><div class="desc">secondary text</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--foreground);"></div><div class="info"><div class="role">foreground</div><div class="desc">body ink</div></div></div>
+</div>
+</body>
+</html>

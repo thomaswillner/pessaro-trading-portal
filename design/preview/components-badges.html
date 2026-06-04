@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Components — Badges & Pills</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { margin: 0; padding: 24px 28px; background: oklch(0.11 0.04 240); font-family: var(--font-sans); }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.65 0.04 260); width: 84px; flex-shrink: 0; font-weight: 600; }
+  .trust-badge [data-lucide] { width: 16px; height: 16px; }
+  .badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; border: 1px solid transparent; }
+  .b-default { background: oklch(0.35 0.20 250); color: white; }
+  .b-secondary { background: oklch(0.18 0.06 240); color: oklch(0.85 0.01 0); }
+  .b-accent { background: oklch(0.45 0.25 280); color: white; }
+  .b-popular { background: oklch(0.80 0.20 160 / 0.18); color: oklch(0.80 0.20 160); border-color: oklch(0.80 0.20 160 / 0.40); }
+  .b-outline { background: transparent; color: oklch(0.92 0.01 0); border-color: oklch(0.92 0.01 0 / 0.30); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="lbl">Trust pill</span>
+    <span class="trust-badge"><i data-lucide="shield-check"></i> Mercado Regulado y Fondos Segregados</span>
+  </div>
+  <div class="row">
+    <span class="lbl">Badges</span>
+    <span class="badge b-default">Forex</span>
+    <span class="badge b-accent">Criptomonedas</span>
+    <span class="badge b-popular">★ Popular</span>
+    <span class="badge b-secondary">Indices</span>
+    <span class="badge b-outline">ETF</span>
+  </div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Colors — Marketing Accents</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 28px; background: var(--card); font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .chip { height: 64px; }
+  .info { padding: 6px 10px 8px; background: var(--card); }
+  .role { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--foreground); font-weight: 600; }
+  .desc { font-size: 10px; color: var(--muted-foreground); margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: oklch(0.60 0.20 220);"></div><div class="info"><div class="role">trust-blue</div><div class="desc">institutional</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.80 0.20 160);"></div><div class="info"><div class="role">mint-accent</div><div class="desc">success / tick</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.70 0.18 50);"></div><div class="info"><div class="role">success-orange</div><div class="desc">opportunity</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.68 0.16 150);"></div><div class="info"><div class="role">price-up</div><div class="desc">+%</div></div></div>
+  <div class="sw"><div class="chip" style="background: oklch(0.55 0.22 15);"></div><div class="info"><div class="role">destructive</div><div class="desc">−% / errors</div></div></div>
+</div>
+</body>
+</html>

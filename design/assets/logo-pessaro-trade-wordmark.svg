@@ -1,0 +1,23 @@
+<svg viewBox="0 0 320 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pessaro Trade wordmark">
+  <defs>
+    <linearGradient id="wm-mark" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#3DC78F"></stop>
+      <stop offset="1" stop-color="#A8F0C8"></stop>
+    </linearGradient>
+  </defs>
+
+  
+  <g transform="translate(8 12)">
+    <rect x="0" y="26" width="9" height="14" rx="2" fill="#ffffff" opacity="0.40"></rect>
+    <rect x="13" y="18" width="9" height="22" rx="2" fill="#ffffff" opacity="0.60"></rect>
+    <rect x="26" y="8" width="9" height="32" rx="2" fill="url(#wm-mark)"></rect>
+    <path d="M 0 28 L 36 4" stroke="url(#wm-mark)" stroke-width="4.5" stroke-linecap="round" fill="none"></path>
+    <path d="M 36 4 L 26 4 M 36 4 L 36 14" stroke="url(#wm-mark)" stroke-width="4.5" stroke-linecap="round" fill="none"></path>
+  </g>
+
+  
+  <g font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="700" letter-spacing="0.08em">
+    <text x="64" y="38" font-size="20" fill="#FFFFFF">PESSARO</text>
+    <text x="170" y="38" font-size="20" fill="url(#wm-mark)">TRADE</text>
+  </g>
+</svg>
