@@ -17,9 +17,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+      - name: Check out the exact event commit without submodule traversal
+        env:
+          REPOSITORY: ${{ github.repository }}
+          EVENT_SHA: ${{ github.sha }}
+          GIT_TERMINAL_PROMPT: '0'
+        run: |
+          set -euo pipefail
+          if [[ ! "${EVENT_SHA:-}" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Invalid event SHA" >&2
+            exit 1
+          fi
+          cd "$GITHUB_WORKSPACE"
+          git init
+          git fetch --no-tags --depth=1 --no-recurse-submodules "https://github.com/${REPOSITORY}.git" "$EVENT_SHA"
+          git checkout --detach --no-recurse-submodules FETCH_HEAD
+          actual_sha=$(git rev-parse HEAD)
+          if [[ "$actual_sha" != "$EVENT_SHA" ]]; then
+            echo "Event SHA mismatch" >&2
+            exit 1
+          fi
       - name: Install pinned linter outside the workspace
         run: |
           node --version
